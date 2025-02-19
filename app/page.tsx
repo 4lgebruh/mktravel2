@@ -19,12 +19,12 @@ export default function Home() {
 const HeroSection = () => (
   <section className="relative h-screen flex items-center justify-center">
     <Image
-      src="/mercedes-glc.jpg"
-      alt="Mercedes GLC parked near an airport"
-      layout="fill"
-      objectFit="cover"
-      quality={100}
+      src="/mercedes.jpg"
+      alt="Mercedes luxury vehicle"
+      fill
       priority
+      className="object-cover"
+      quality={100}
     />
     <div className="absolute inset-0 bg-black bg-opacity-50" />
     <div className="relative z-10 text-center">
@@ -81,7 +81,7 @@ const BookingForm = () => (
 )
 
 const ServicesSection = () => (
-  <section className="py-20 bg-secondary">
+  <section id="services" className="py-20 bg-secondary">
     <div className="container mx-auto px-4">
       <h2 className="text-4xl font-serif text-center mb-12">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -111,7 +111,7 @@ const ServicesSection = () => (
 )
 
 const FeaturesSection = () => (
-  <section className="py-20 bg-primary">
+  <section id="features" className="py-20 bg-primary">
     <div className="container mx-auto px-4">
       <h2 className="text-4xl font-serif text-center mb-12">Why Choose Us</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -125,7 +125,7 @@ const FeaturesSection = () => (
 )
 
 const TestimonialsSection = () => (
-  <section className="py-20 bg-secondary">
+  <section id="testimonials" className="py-20 bg-secondary">
     <div className="container mx-auto px-4">
       <h2 className="text-4xl font-serif text-center mb-12">What Our Clients Say</h2>
       <TestimonialCarousel />

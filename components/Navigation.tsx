@@ -2,28 +2,12 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const Navbar = () => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex fixed top-0 left-0 right-0 z-50 p-4 justify-between items-center">
-        <a href="#" className="text-2xl font-serif">MK Travel</a>
-        <div className="space-x-8">
-          <a href="#services">Services</a>
-          <a href="#features">Features</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-
-      {/* Mobile Logo */}
-      <div className="fixed top-4 left-4 z-50 md:hidden">
-        <a href="#" className="text-2xl font-serif text-white">MK Travel</a>
-      </div>
-
-      {/* Mobile Hamburger Button */}
+      {/* Hamburger Button - only visible on mobile */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4 right-4 z-50 p-2 text-white md:hidden"
@@ -35,7 +19,7 @@ const Navbar = () => {
         </div>
       </button>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - only visible on mobile */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -59,5 +43,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
-
+export default Navigation 
