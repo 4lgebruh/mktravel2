@@ -49,61 +49,85 @@ const HeroSection = () => (
   </section>
 )
 
-const BookingForm = () => (
-  <motion.form
-    className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.4 }}
-  >
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-      <input
-        type="text"
-        placeholder="Pickup Location"
-        className="bg-transparent border border-accent text-white p-2 rounded"
-      />
-      <input
-        type="text"
-        placeholder="Drop-off Location"
-        className="bg-transparent border border-accent text-white p-2 rounded"
-      />
-      <input type="date" className="bg-transparent border border-accent text-white p-2 rounded" />
-      <input type="time" className="bg-transparent border border-accent text-white p-2 rounded" />
-    </div>
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="w-full bg-accent text-primary py-2 rounded font-semibold"
+const BookingForm = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Add your booking logic here
+    console.log('Booking form submitted')
+  }
+
+  return (
+    <motion.form
+      onSubmit={handleSubmit}
+      className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
     >
-      Book Now
-    </motion.button>
-  </motion.form>
-)
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <input
+          type="text"
+          placeholder="Pickup Location"
+          className="bg-transparent border border-accent text-white p-2 rounded"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Drop-off Location"
+          className="bg-transparent border border-accent text-white p-2 rounded"
+          required
+        />
+        <input 
+          type="date" 
+          className="bg-transparent border border-accent text-white p-2 rounded"
+          required 
+        />
+        <input 
+          type="time" 
+          className="bg-transparent border border-accent text-white p-2 rounded"
+          required 
+        />
+      </div>
+      <motion.button
+        type="submit"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-full bg-accent text-primary py-2 rounded font-semibold"
+      >
+        Book Now
+      </motion.button>
+    </motion.form>
+  )
+}
 
 const ServicesSection = () => (
   <section id="services" className="py-20 bg-secondary">
     <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-serif text-center mb-12">Our Services</h2>
+      <h2 className="text-4xl font-serif text-center mb-12 text-white">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ServiceCard
           icon="🛫"
           title="Airport Transfers"
           description="Seamless transfers to and from all major airports."
+          href="/airport-transfers"
         />
         <ServiceCard
           icon="⛴"
           title="Ferry Port Transfers"
           description="Luxury transport for smooth ferry terminal pickups & drop-offs."
+          href="/ferry-transfers"
         />
         <ServiceCard
           icon="🚗"
-          title="Point-to-Point Travel"
+          title="A to B"
           description="Travel in style between any two locations in comfort."
+          href="/a-to-b"
         />
         <ServiceCard
           icon="🎩"
-          title="Custom Chauffeur Service"
-          description="Hire a dedicated driver for personal or business trips."
+          title="Other Services"
+          description="Flexible transport solutions for all your needs."
+          href="/other-services"
         />
       </div>
     </div>
